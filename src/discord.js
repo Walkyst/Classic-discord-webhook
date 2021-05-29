@@ -21,7 +21,7 @@ module.exports.send = (id, token, repo, branch, url, commits, size) => new Promi
 function createEmbed(repo, branch, url, commits, size) {
     console.log("Constructing Embed...");
 
-    return new discord.embed
+    return new discord.MessageEmbed()
         .setColor("#7289DA")
         .setAuthor(`${branch.owner.name}`, `${branch.owner_url.avatar_url}`, `${branch.owner_url}`)
         .setDescription(`[${repo.name}:${branch.name}] ${size} new ${size === 1 ? "commit" : "commits"}\n${getChangeLog(commits, size)}`)
