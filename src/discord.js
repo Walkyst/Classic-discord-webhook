@@ -21,7 +21,7 @@ module.exports.send = (id, token, repository, branch, payload, commits, compare,
 function createEmbed(repository, branch, payload, commits, compare, size) {
     console.log("Constructing Embed...");
 
-    return new discord.MessageEmbed()
+    return new discord.RichEmbed()
         .setColor("#7289DA")
         .setAuthor(`${payload.repository.owner.name}`, `${payload.repository.owner.avatar_url}`, `${payload.repository.owner.html_url}`)
         .setTitle(`[${repository.name}:${branch}] ${size} new ${size === 1 ? `commit` : `commits`}`)
