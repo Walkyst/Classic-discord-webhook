@@ -1,7 +1,7 @@
 const discord = require('discord.js')
 const MAX_MESSAGE_LENGTH = 50;
 
-module.exports.send = (id, token, repo, branch, url, commits, size) => new Promise((resolve, reject) => {
+module.exports.send = (id, token, repository, branch, payload, commits, compare, size) => new Promise((resolve, reject) => {
     let client;
     console.log("Preparing Webhook...")
     try {
@@ -12,19 +12,19 @@ module.exports.send = (id, token, repo, branch, url, commits, size) => new Promi
         return
     }
 
-    client.send(createEmbed(repo, branch, url, commits, size)).then(() => {
+    client.send(createEmbed(repository, branch, payload, commits, compare, size)).then(() => {
         console.log("Successfully sent the message!")
         resolve()
     }, reject)
 })
 
-function createEmbed(repo, branch, url, commits, size) {
+function createEmbed(repository, branch, payload, commits, compare, size) {
     console.log("Constructing Embed...");
 
     return new discord.MessageEmbed()
         .setColor("#7289DA")
-        .setAuthor(`${branch.owner.name}`, `${branch.owner_url.avatar_url}`, `${branch.owner_url}`)
-        .setDescription(`[${repo.name}:${branch.name}] ${size} new ${size === 1 ? "commit" : "commits"}\n${getChangeLog(commits, size)}`)
+        .setAuthor(`${payload.repository.owner.name}`, `${payload.repository.owner.avatar_url}`, `${payload.repository.owner.html_url}`)
+        .setDescription(`[[${repository.name}:${branch}] ${size} new ${size === 1 ? `commit]${compare}` : `commits]${compare}`}\n${getChangeLog(commits, size)}`)
 }
 
 function getChangeLog(commits, size) {
