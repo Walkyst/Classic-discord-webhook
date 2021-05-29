@@ -24,7 +24,7 @@ function createEmbed(repository, branch, payload, commits, compare, size) {
     return new discord.MessageEmbed()
         .setColor("#7289DA")
         .setAuthor(`${payload.repository.owner.name}`, `${payload.repository.owner.avatar_url}`, `${payload.repository.owner.html_url}`)
-        .setDescription(`[[${repository.name}:${branch}] ${size} new ${size === 1 ? `commit]${compare}` : `commits]${compare}`}\n${getChangeLog(commits, size)}`)
+        .setDescription(`[[${repository.name}:${branch}] ${size} new ${size === 1 ? `commit](${compare})` : `commits](${compare})`}\n${getChangeLog(commits, size)}`)
 }
 
 function getChangeLog(commits, size) {
