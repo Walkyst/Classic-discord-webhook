@@ -1,18 +1,28 @@
 name: 'Classic Discord Webhooks'
-description: 'This GitHub Action sends simple discord messages for your commits.'
+description: 'Sends the commits of a push or a pull request to a Discord webhook, like the GitHub integration of Discord.'
 
+# The webhook address is https://discord.com/api/webhooks/<id>/<token>: give it whole as url, or as id and token.
 inputs:
+  url:
+    description: The whole address of the Discord webhook
+    required: false
   id:
-    description: The Discord Webhook id
-    required: true
+    description: The Discord webhook id, the number in its address
+    required: false
   token:
-    description: The Discord Webhook token
-    required: true
+    description: The Discord webhook token, the part of its address after the id
+    required: false
+  username:
+    description: A name to post under instead of the name of the webhook
+    required: false
+  avatar-url:
+    description: An avatar to post with instead of the avatar of the webhook
+    required: false
 
 runs:
-  using: 'node12'
+  using: 'node24'
   main: 'src/index.js'
-  
+
 branding:
   icon: activity
   color: black

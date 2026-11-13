@@ -1,33 +1,14 @@
 {
   "name": "classic-discord-webhooks",
-  "version": "1.0.0",
-  "description": "This GitHub Action can produce fancy and more meaningful discord messages for your commits.",
+  "version": "2.0.0",
+  "description": "Sends the commits of a push or a pull request to a Discord webhook, like the GitHub integration of Discord.",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mist3r-Robot/classic-discord-webhook.git"
+    "url": "git+https://github.com/Walkyst/Classic-discord-webhook.git"
   },
-  "keywords": [
-    "github",
-    "action",
-    "discord",
-    "webhook"
-  ],
+  "keywords": ["github", "action", "discord", "webhook"],
   "author": "Thomas Bnt",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/Mist3r-Robot/classic-discord-webhook/issues"
-  },
-  "homepage": "https://github.com/Mist3r-Robot/classic-discord-webhook#readme",
-  "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0",
-    "child-process-promise": "^2.2.1",
-    "discord.js": "^11.5.1",
-    "xml-library": "0.2.0",
-    "axios": "^0.24.0"
-  }
+  "dependencies": {}
 }
